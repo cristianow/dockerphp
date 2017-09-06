@@ -9,6 +9,8 @@ services:
        volumes:
           - ./web:/var/www/html
           - ./apache/default.conf:/etc/apache2/sites-available/000-default.conf
+          - ./apache/apache2.conf:/etc/apache2/apache2.conf
+          - ./apache/security.conf:/etc/apache2/conf-enabled/security.conf
           - ./php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     db:
         image: mariadb
@@ -22,4 +24,4 @@ services:
             MYSQL_DATABASE: database
         ports:
             - "8899:3306"   
-            
+             
